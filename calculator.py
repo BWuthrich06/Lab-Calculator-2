@@ -57,6 +57,6 @@ while True:
             result = mod(float(num1), float(num2))
         else:
             result = "Invalid operator. Please try again."    
-    
+    print()
     print(result)
     
