@@ -9,47 +9,52 @@ while True:
     equation = input("Please enter your equation in prefix notation.")
     tokens = equation.split(' ')
 
-    operator = tokens[0]
-    num1 = tokens[1]
-    num2 = tokens[2]
-    result = 0
-
-    if 'q' or 'quit' in tokens:
+    if 'q' in tokens or 'quit' in tokens:
         print("Goodbye.")
         exit()
-    
+
     elif len(tokens) < 2:
         print("Not enough inputs.")
         continue
     
-    elif not num1.isnumeric() or not num2.isnumeric():
+    
+    operator = tokens[0]
+    num1 = tokens[1]
+    result = 0
+    
+    if len(tokens) > 2:
+        num2 = tokens[2]
+    else:
+        num2 = "0"
+   
+    if not num1.isnumeric() or not num2.isnumeric():
         print("Those are invalid inputs, please use numbers!")
         continue
 
     else:
         if operator == "+":
-            result = add(num1, num2)
+            result = add(float(num1), float(num2))
 
         elif operator == "-":
-            result = subtract(num1, num2)
+            result = subtract(float(num1), float(num2))
 
         elif operator == "*":
-            result = multiply(num1, num2)
+            result = multiply(float(num1), float(num2))
 
         elif operator == "/":
-            result = divide(num1, num2)
+            result = divide(float(num1), float(num2))
 
         elif operator == "square":
-            result = square(num1)  
+            result = square(float(num1))  
 
         elif operator == "cube":
-            result = cube(num1)
+            result = cube(float(num1))
 
         elif operator == "pow":
-            result = power(num1, num2)
+            result = power(float(num1), float(num2))
 
         elif operator == "mod":
-            result = mod(num1, num2)
+            result = mod(float(num1), float(num2))
         else:
             result = "Invalid operator. Please try again."    
     
